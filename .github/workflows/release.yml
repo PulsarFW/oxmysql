@@ -23,10 +23,12 @@ jobs:
 
       - name: Build
         run: bun run build
+        env:
+          TGT_RELEASE_VERSION: ${{ github.ref_name }}
 
       - name: Bundle files
         run: |
-          mkdir -p ./temp/oxmysql/lib
+          mkdir -p ./temp/oxmysql/{lib,web}
           cp ./{LICENSE,README.md,fxmanifest.lua,ui.lua} ./temp/oxmysql
           cp ./lib/MySQL.lua ./temp/oxmysql/lib
           cp -r ./{dist,logger} ./temp/oxmysql

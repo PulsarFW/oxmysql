@@ -23,8 +23,6 @@ jobs:
 
       - name: Build
         run: bun run build
-        env:
-          TGT_RELEASE_VERSION: ${{ github.ref_name }}
 
       - name: Bundle files
         run: |
